@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Search Page </title>
+	<link type="text/css" href="main.css" rel="stylesheet"/>
+	
+</head>
+<body>
+	<h1>XYZ Bank Ltd</h1>
+		<div>
+			<a href="home.html">Home</a>
+			<a href="deposits.html">Deposits</a>
+			<a href="interest-rates.html">Interest Rates</a>
+			<a href="#">Search</a>
+		</div>
+	<h2>Search Engine </h2>
+	<!-- A Simple HTML Form to collect TEXT from User in field named "q"
+		And, after user clicks on "Submit" button, send the value "q" to
+		URL https://google.com/search	
+	-->
+	<form action="https://in.search.yahoo.com/search">
+		Search on google : <input type="text" width="100" name="p" />
+		<input type="submit" value="Search"/>
+	</form>
+	<h2>Participation Form</h2>
+	<form>
+		<table width="400" cellspacing="10">
+			<tr>
+				<td>Your name</td>
+				<td><input name="fn" /></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="radio" name="gn" value="male"/> Male
+					<input type="radio" name="gn" value="female"/> Female</td>
+			</tr>
+		    <tr>
+				<td>Date of Birth</td>
+				<td><input type="date" name="dob" /></td>
+			</tr>
+			<tr>
+				<td>Fav. Shows</td>
+				<td><select name="shows">
+					<option value="1">Marvel Comics</option>
+					<option value="2">DC Comics</option>
+					<option value="3">Naruto</option>
+					<option value="4">Dragon Balls</option>
+					<option value="999">Indian TV Series</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><input type="Submit" value="Submit"/></td>
+			</tr>
+		 
+		
+		</table>
+	</form>
+</body>
+</html>

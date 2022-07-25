@@ -1,0 +1,33 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+h1 {
+	margin: 0px;
+	padding: 20px;
+	background-color: cadetblue;
+}
+div {
+	/* COMMENT */
+	/* Composite property 
+		 Made of THREE properties:
+			 border-width: 1px
+			border-style: solid
+			border-color: black
+	*/
+	border: 1px solid black;
+	background-color: cornsilk;
+	padding: 5px;
+}
+/*Complex Selector : Select "A" who is "CHILD of DIV" element */
+div > a {
+	text-decoration: none; /* Reset the Underline from link */
+	padding: 10px;
+	border-top: 1px solid brown;
+	border-bottom: 1px solid brown;
+}
+/* CSSv2 Pseudo classes */
+div > a:hover {
+	border-width: 3px;
+	font-weight: bolder;
+}
