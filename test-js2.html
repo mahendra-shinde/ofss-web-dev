@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>JS Demo</title>
+	<script>
+		// Approach 1 : Using JSON Array
+		var weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+		// Approach 2 : Using Array Constructor
+		var months = new Array();
+		// Add new elements in existing array
+		months.push("Jan");
+		months.push("Feb");
+		months.push("Mar");
+		months.push("Apr");
+		months.push("May");
+	</script>
+</head>
+<body>
+	<script>
+		document.write("<h1>Weekdays</h1>")
+		for(i=0;i<weekDays.length;i++){
+			document.write(weekDays[i]+"<br/>");
+		}
+		document.write("<h1>Months</h1>");
+		for(i=0;i<months.length;i++){
+			document.write(months[i]+"<br/>");
+		}
+	</script>
+</body>
+</html>

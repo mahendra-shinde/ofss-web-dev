@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>JS Demo 3</title>
+	<script>
+	// JSON Syntax for Object
+	var emp = { 
+		"firstName": "Mahendra",
+		"lastName": "Shinde",
+		"city": "Navi Mumbai"
+	};
+
+	// Constructor function
+	// Function is "reusable" piece of code 
+	// functions can accept "parameters" eg. firstName, lastName & city
+	var employee = function(firstName, lastName, city){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
+	}
+	var empList = new Array();
+	// Calling function, we pass "Arguments" to "parameters"
+	// "Divyashree" is argument for parameter "firstName"
+	empList.push(new employee("Divyashree","Shinde","Navi Mumbai"));
+	empList.push(new employee("Rajiv","Bhatia","Torrento"));
+	empList.push(new employee("Ajay","Deol","Mumbai"));
+	
+	</script>
+</head>
+<body>
+	<script>
+		document.write("Name "+ emp.firstName+" "+emp.lastName );
+		// FOR LOOP to display all employees
+	</script>
+</body>
+</html>
