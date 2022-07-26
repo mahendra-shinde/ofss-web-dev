@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>AJAX Demo 1</title>
+	<script>
+		function find(){
+			// droping "var" from declaration would make variable "Global" scope !
+			req = new XMLHttpRequest(); // Initialize the request object
+			empId = parseInt(document.getElementById("empid").value);
+			req.open("GET","https://dummy.restapiexample.com/api/v1/employee	/"+empId);
+			req.onreadystatechange =  processResponse;
+			req.send();
+		}
+
+		function processResponse(){
+			/*
+				readyState : 0  You have NOT initialized a request
+				readyState : 1  Connected to target server, sending request to server
+				readyState : 2  Server has received your request
+				readyState : 3  Server is now PROCESSING your request
+				readyState : 4  Server has finished processing request and now sending response
+			*/
+			if(req.readyState == 4 && req.status == 200){
+				console.log("Successful request");
+				response = req.responseText;
+				respData = JSON.parse(response);
+				var rows = "<tr><td>"+respData.data.id+"</td><td>"
+							+ respData.data.employee_name +"</td><td>"
+							+ respData.data.employee_salary+"</td><td>"
+							+ respData.data.employee_age+"</td></tr>";	
+				
+				document.getElementById("dataTable").innerHTML 	= rows;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<table>
+			<tr>
+				<td>Enter EMP ID</td>
+				<td><input type="text" id="empid" /> </td>
+				<td><input type="button" value="Search" onclick="find()" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<td>Employee ID</td>
+				<td>Name</td>
+				<td>Salary</td>
+				<td>Age</td>
+			</tr>
+		</thead>
+		<tbody id="dataTable">
+
+		</tbody>
+		
+	</table>
+</body>
+</html>
