@@ -1,38 +1,72 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<title>JD Demo 4</title>
-	<script>
-	var Employee = function(firstName, lastName, city){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.city = city;
-	}
-	var empList = new Array();
-	</script>
-</head>
-<body>
-	<h2> Data Entry form</h2>
-	<form>
-	<table>
-		<tr>
-			<td>First Name</td>
-			<td><input type="text" id="fn" /> </td>
-		</tr>	
-		<tr>
-			<td>Last Name</td>
-			<td><input type="text" id="ln" /> </td>
-		</tr>	
-		<tr>
-			<td>City</td>
-			<td><input type="text" id="ct" /> </td>
-		</tr>	
-		<tr>
-			<td><input type="button" onclick="save()" /> </td>
-		</tr>	
-	</table>
-	</form>
-</body>
-</html>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+		<title>JD Demo 4</title>
+		<script>
+		var Employee = function(firstName, lastName, city){
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.city = city;
+		}
+		var empList = new Array();
+		function save(frm){
+			// FORM-NAME.INPUT-ID.value
+			fn = frm.fn.value ;
+			ln = frm.ln.value  ;
+			ct = frm.ct.value  ;
+			emp = new Employee(fn,ln,ct);
+			console.log("New object : "+ JSON.stringify(emp));
+			empList.push(emp);
+		}
+		function listAll(){
+			var data = document.getElementById("data");
+			var dataText = "";
+			
+			for(i=0;i<empList.length;i++){
+				dataText += "<tr><td>"+empList[i].firstName+"</td><td>"+empList[i].lastName+"</td><td>"+empList[i].city+"</td></tr>";
+			}
+			data.innerHTML = dataText;
+		}
+		</script>
+	</head>
+	<body>
+		<h2> Data Entry form</h2>
+		<form>
+		<table>
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" id="fn" /> </td>
+			</tr>	
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" id="ln" /> </td>
+			</tr>	
+			<tr>
+				<td>City</td>
+				<td><input type="text" id="ct" /> </td>
+			</tr>	
+			<tr>
+				<!-- Every INPUT object belongs to SOME FORM !-->
+				<td colspan="2">
+					<input type="button" value="Save" onclick="save(this.form)" />
+					<input type="button" value="List" onclick="listAll()" /> </td>
+			</tr>	
+		</table>
+		<h2>List of Employees </h2>
+		<table>
+			<thead>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>City</td>
+				</tr>
+			</thead>
+			<tbody id="data" >
+				<!-- Populated programmatically -->
+			</tbody>
+		</table>
+		</form>
+	</body>
+	</html>
