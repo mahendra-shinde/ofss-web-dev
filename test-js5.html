@@ -5,30 +5,46 @@
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<title>JD Demo 4</title>
 		<script>
-		var Employee = function(firstName, lastName, city){
+		var Employee = function(firstName, lastName, city, age){
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.city = city;
+			this.age = age;
 		}
 		var empList = new Array();
 		function save(frm){
+			var error = "";
 			// FORM-NAME.INPUT-ID.value
 			fn = frm.fn.value ;
+			if(fn == 'undefined' || fn.trim().length < 1){
+				error += "Please enter firstname \n";
+			}
 			ln = frm.ln.value ;
+			if(ln == 'undefined' || ln.trim().length < 1){
+				error += "Please enter lastname \n";
+			}
 			ct = frm.ct.value ;
+			if(ct == 'undefined' || ct.trim().length < 1){
+				error += "Please enter city \n";
+			}
+			age = parseInt(frm.age.value) ;
+			if(isNaN(age)){
+				error +="Please enter age in digits only\n";
+			}else {
+				if(age<18){
+					error += "You must be an adult !\n";
+				}
+			}
+
+			if(error.length>0){
+				alert(error);
+			}else{
 			emp = new Employee(fn,ln,ct);
 			console.log("New object : "+ JSON.stringify(emp));
 			empList.push(emp);
-		}
-		function listAll(){
-			var data = document.getElementById("data");
-			var dataText = "";
-			
-			for(i=0;i<empList.length;i++){
-				dataText += "<tr><td>"+empList[i].firstName+"</td><td>"+empList[i].lastName+"</td><td>"+empList[i].city+"</td></tr>";
 			}
-			data.innerHTML = dataText;
 		}
+		
 		</script>
 	</head>
 	<body>
@@ -48,25 +64,16 @@
 				<td><input type="text" id="ct" /> </td>
 			</tr>	
 			<tr>
+				<td>Age</td>
+				<td><input type="text" id="age" /> </td>
+			</tr>	
+			<tr>
 				<!-- Every INPUT object belongs to SOME FORM !-->
 				<td colspan="2">
 					<input type="button" value="Save" onclick="save(this.form)" />
-					<input type="button" value="List" onclick="listAll()" /> </td>
+		
 			</tr>	
 		</table>
-		<h2>List of Employees </h2>
-		<table>
-			<thead>
-				<tr>
-					<td>First Name</td>
-					<td>Last Name</td>
-					<td>City</td>
-				</tr>
-			</thead>
-			<tbody id="data" >
-				<!-- Populated programmatically -->
-			</tbody>
-		</table>
-		</form>
+		
 	</body>
 	</html>

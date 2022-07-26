@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Calculator</title>
+	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+	<script src='main.js'></script>
+</head>
+<body>
+	<article>
+		<header>
+			<h1>The Calculator</h1>
+		</header>
+		<div>
+	<form>
+		<table>
+			<tr>
+				<td><input type=text id="n1"/></td>
+				<td>
+					<select id="opr">
+						<option value="add" > + </option>
+						<option value="sub" > - </option>
+						<option value="div" > / </option>
+						<option value="mult" > * </option>
+					</select>
+				</td>
+				<td><input type=text id="n2"/></td>
+				<td><input type=button id="btn" value="="/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Answer:</td>
+				<td colspan="2"><span id="ans" /></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	</article>
+</body>
+</html>
